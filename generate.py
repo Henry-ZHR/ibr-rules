@@ -54,13 +54,13 @@ def get_regex_by_domain(domains: list[str]) -> str:
         domain.replace('.', '\\.') for domain in domains)
 
 
-if path.isdir(RULES_DIR):
-    input('Rules directory already exists. Press Enter to delete it...')
-    rmtree(RULES_DIR)
-
+rmtree(RULES_DIR)
 mkdir(RULES_DIR)
 
+all_packages = []
+
 for (packageName, rules) in RULES.items():
+    all_packages.append(packageName)
     print('Processing: ' + packageName)
     r = {'tag': packageName, 'authors': '', 'rules': []}
     for (tag, attrs) in rules.items():
@@ -72,8 +72,14 @@ for (packageName, rules) in RULES.items():
                 'force': get_regex_by_domain(attrs['force'])
             }
         })
-    file = open(path.join(RULES_DIR, packageName + '.json'), 'w')
-    dump(r, file)
-    file.close()
+    with open(path.join(RULES_DIR, packageName + '.json'), 'w') as file:
+        dump(r, file)
 
-print('Done')
+print('Finished writing rules')
+
+s = {'packages': []}
+for pkg in all_packages:
+    s['packages'].append({'packageName': pkg})
+with open('packages.json', 'w') as file:
+    dump(s, file)
+print('Finished writing packages')
