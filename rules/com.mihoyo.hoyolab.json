@@ -1,0 +1,1 @@
+{"tag": "com.mihoyo.hoyolab", "authors": "", "rules": [{"tag": "default", "url-source": "intent://extra/activity_web_view_url", "url-filter": {"ignore": "https?\\:\\/\\/([^\\/]+\\.|)(hoyolab\\.com)(\\/.*)?", "force": ""}}]}

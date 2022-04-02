@@ -1,0 +1,1 @@
+{"tag": "com.tencent.mobileqq", "authors": "", "rules": [{"tag": "default", "url-source": "intent://extra/url", "url-filter": {"ignore": "https?\\:\\/\\/([^\\/]+\\.|)(qq\\.com)(\\/.*)?", "force": "https?\\:\\/\\/([^\\/]+\\.|)(weixin\\.qq\\.com)(\\/.*)?"}}]}
