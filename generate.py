@@ -8,12 +8,12 @@ RULES = {
         'default': {
             'source': 'intent://extra/rawUrl',
             'ignore': ['qq.com'],
-            'force': ['']
+            'force': []
         },
         'QRScanner': {
             'source': 'intent://extra/rawUrl/url',
             'ignore': ['qq.com'],
-            'force': ['']
+            'force': []
         }
     },
     'com.tencent.mobileqq': {
