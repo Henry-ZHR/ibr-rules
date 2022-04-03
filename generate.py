@@ -40,7 +40,7 @@ RULES = {
     'com.mihoyo.hoyolab': {
         'default': {
             'source': 'intent://extra/activity_web_view_url',
-            'ignore': ['hoyolab.com'],
+            'ignore': ['hoyolab.com', 'mihoyo.com'],
             'force': []
         }
     }
