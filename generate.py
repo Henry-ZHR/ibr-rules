@@ -30,6 +30,13 @@ RULES = {
             'force': []
         }
     },
+    'com.bilibili.app.in': {
+        'default': {
+            'source': 'intent://data',
+            'ignore': ['bilibili.com', 'b23.tv'],
+            'force': []
+        }
+    },
     'com.tencent.androidqqmail': {
         'default': {
             'source': 'intent://extra/url',
