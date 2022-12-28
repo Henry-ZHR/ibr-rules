@@ -30,20 +30,6 @@ RULES = {
             'force': []
         }
     },
-    'com.bilibili.app.in': {
-        'default': {
-            'source': 'intent://data',
-            'ignore': ['bilibili.com', 'b23.tv'],
-            'force': []
-        }
-    },
-    'com.tencent.androidqqmail': {
-        'default': {
-            'source': 'intent://extra/url',
-            'ignore': [],
-            'force': []
-        }
-    },
     'com.mihoyo.hoyolab': {
         'default': {
             'source': 'intent://extra/activity_web_view_url',
@@ -57,8 +43,8 @@ RULES = {
 def get_regex_by_domain(domains: list[str]) -> str:
     if len(domains) == 0:
         return ''
-    return 'https?\\:\\/\\/([^\\/]+\\.|)(%s)(\\/.*)?' % '|'.join(
-        domain.replace('.', '\\.') for domain in domains)
+    return r'https?\:\/\/([^\/]+\.|)(%s)(\/[\s\S]*)?' % '|'.join(
+        domain.replace('.', r'\.') for domain in domains)
 
 
 rmtree(RULES_DIR)

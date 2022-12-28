@@ -1,1 +1,0 @@
-{"tag": "com.tencent.androidqqmail", "authors": "", "rules": [{"tag": "default", "url-source": "intent://extra/url", "url-filter": {"ignore": "", "force": ""}}]}

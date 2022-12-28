@@ -1,1 +1,0 @@
-{"tag": "com.bilibili.app.in", "authors": "", "rules": [{"tag": "default", "url-source": "intent://data", "url-filter": {"ignore": "https?\\:\\/\\/([^\\/]+\\.|)(bilibili\\.com|b23\\.tv)(\\/.*)?", "force": ""}}]}
