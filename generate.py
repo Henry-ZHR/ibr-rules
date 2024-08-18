@@ -23,6 +23,13 @@ RULES = {
             'force': ['weixin.qq.com']
         }
     },
+    'com.tencent.wework': {
+        'default': {
+            'source': 'intent://extra/extra_web_url',
+            'ignore': [],
+            'force': []
+        }
+    },
     'tv.danmaku.bili': {
         'default': {
             'source': 'intent://data',
