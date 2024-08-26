@@ -26,7 +26,7 @@ RULES = {
     'com.tencent.wework': {
         'default': {
             'source': 'intent://extra/extra_web_url',
-            'ignore': [],
+            'ignore': ['work.weixin.qq.com'],
             'force': []
         }
     },
