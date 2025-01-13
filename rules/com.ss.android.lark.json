@@ -1,0 +1,14 @@
+{
+    "tag": "com.ss.android.lark",
+    "authors": "",
+    "rules": [
+        {
+            "tag": "default",
+            "url-source": "intent://extra/url",
+            "url-filter": {
+                "ignore": "https?\\:\\/\\/([^\\/]*\\.)?(feishu\\.cn)(\\/[\\s\\S]*)?",
+                "force": ""
+            }
+        }
+    ]
+}

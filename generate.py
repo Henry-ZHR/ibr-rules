@@ -43,6 +43,13 @@ RULES = {
             'ignore': ['hoyolab.com', 'mihoyo.com'],
             'force': []
         }
+    },
+    'com.ss.android.lark': {
+        'default': {
+            'source': 'intent://extra/url',
+            'ignore': ['feishu.cn'],
+            'force': []
+        }
     }
 }
 
@@ -50,8 +57,13 @@ RULES = {
 def get_regex_by_domain(domains: list[str]) -> str:
     if len(domains) == 0:
         return ''
-    return r'https?\:\/\/([^\/]+\.|)(%s)(\/[\s\S]*)?' % '|'.join(
-        domain.replace('.', r'\.') for domain in domains)
+    domains_reg = '|'.join(domain.replace('.', r'\.') for domain in domains)
+    return ''.join([
+        r'https?\:\/\/',  # scheme
+        r'([^\/]*\.)?',  # subdomain(s)
+        f'({domains_reg})',  # domain(s)
+        r'(\/[\s\S]*)?',  # path, etc
+    ])
 
 
 rmtree(RULES_DIR)
@@ -59,10 +71,10 @@ mkdir(RULES_DIR)
 
 all_packages = []
 
-for (packageName, rules) in RULES.items():
-    all_packages.append(packageName)
-    print('Processing: ' + packageName)
-    r = {'tag': packageName, 'authors': '', 'rules': []}
+for (package_name, rules) in RULES.items():
+    all_packages.append(package_name)
+    print('Processing: ' + package_name)
+    r = {'tag': package_name, 'authors': '', 'rules': []}
     for (tag, attrs) in rules.items():
         r['rules'].append({
             'tag': tag,
@@ -72,8 +84,8 @@ for (packageName, rules) in RULES.items():
                 'force': get_regex_by_domain(attrs['force'])
             }
         })
-    with open(path.join(RULES_DIR, packageName + '.json'), 'w') as file:
-        dump(r, file)
+    with open(path.join(RULES_DIR, package_name + '.json'), 'w') as file:
+        dump(r, file, indent=4)
 
 print('Finished writing rules')
 
@@ -81,5 +93,5 @@ s = {'packages': []}
 for pkg in all_packages:
     s['packages'].append({'packageName': pkg})
 with open('packages.json', 'w') as file:
-    dump(s, file)
+    dump(s, file, indent=4)
 print('Finished writing packages')

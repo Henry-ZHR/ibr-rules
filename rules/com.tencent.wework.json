@@ -1,1 +1,14 @@
-{"tag": "com.tencent.wework", "authors": "", "rules": [{"tag": "default", "url-source": "intent://extra/extra_web_url", "url-filter": {"ignore": "https?\\:\\/\\/([^\\/]+\\.|)(work\\.weixin\\.qq\\.com)(\\/[\\s\\S]*)?", "force": ""}}]}
+{
+    "tag": "com.tencent.wework",
+    "authors": "",
+    "rules": [
+        {
+            "tag": "default",
+            "url-source": "intent://extra/extra_web_url",
+            "url-filter": {
+                "ignore": "https?\\:\\/\\/([^\\/]*\\.)?(work\\.weixin\\.qq\\.com)(\\/[\\s\\S]*)?",
+                "force": ""
+            }
+        }
+    ]
+}
